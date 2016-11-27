@@ -1,0 +1,3 @@
+description: Menus do Sistema
+extend: "menu.1"
+alias: "menu.2"

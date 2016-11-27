@@ -1,0 +1,39 @@
+description: |
+  Relacionamento M-N permissao -> menu
+columns:
+  permissao__menu_id:
+    type: PRIMARY
+    notNull: false
+    default: ''
+    comment: ''
+  permissao_id:
+    type: PRIMARY
+    notNull: true
+    default: ''
+    comment: ''
+  menu_id:
+    type: PRIMARY
+    notNull: true
+    default: ''
+    comment: ''
+relations:
+  fk_permissao___permissao__menu:
+    foreignKey: permissao_id
+    referenceKey: permissao_id
+    referenceTable: permissao
+    onDelete: CASCADE
+    onUpdate: null
+  fk_menu___permissao__menu:
+    foreignKey: menu_id
+    referenceKey: menu_id
+    referenceTable: menu
+    onDelete: CASCADE
+    onUpdate: null
+indexes:
+  idx_permissao__menu:
+    type: unique index
+    columns:
+      - permissao_id
+      - menu_id
+primaryKey:
+  - permissao__menu_id

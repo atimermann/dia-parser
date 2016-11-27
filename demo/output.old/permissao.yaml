@@ -1,0 +1,43 @@
+description: Gerenciamento de Permissão
+columns:
+  permissao_id:
+    type: PRIMARY
+    notNull: false
+    default: ''
+    comment: ''
+  permissao:
+    type: VARCHAR(128)
+    notNull: true
+    default: ''
+    comment: |
+      Nome da permissão, (Nome no sistema)
+  titulo:
+    type: VARCHAR(63)
+    notNull: true
+    default: ''
+    comment: 'Nome Amigável da permissão, que será exibido para o usuário'
+  descricao:
+    type: VARCHAR(512)
+    notNull: false
+    default: ''
+    comment: Descritivo da permissão
+  ativo:
+    type: BIT(1)
+    notNull: true
+    default: '1'
+    comment: |-
+      0 -> Inativo
+      1 -> Ativo
+  categoria:
+    type: VARCHAR(64)
+    notNull: false
+    default: ''
+    comment: 'Categoria da permissão, para melhor organizão para o usuário'
+relations: {}
+indexes:
+  idx_permissao_permissao:
+    type: unique index
+    columns:
+      - permissao
+primaryKey:
+  - permissao_id

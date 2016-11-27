@@ -1,0 +1,118 @@
+description: |
+  Gerenciamento de usuários no sistema
+columns:
+  usuario_id:
+    type: PRIMARY
+    notNull: false
+    default: ''
+    comment: ''
+  conta_id:
+    type: PRIMARY
+    notNull: false
+    default: ''
+    comment: ''
+  usuario:
+    type: VARCHAR(255)
+    notNull: true
+    default: ''
+    comment: Pode ser nulo quando acesso via facebook ou outros
+  senha:
+    type: TEXT(1024)
+    notNull: false
+    default: ''
+    comment: ''
+  administradorConta:
+    type: BIT(1)
+    notNull: true
+    default: '0'
+    comment: |-
+      Tem todos os acessos para a conta que pertence
+
+      0 -> Não
+      1 -> Sim
+  administradorGeral:
+    type: BIT(1)
+    notNull: true
+    default: '0'
+    comment: >-
+      Administrador Geral do sistema (tem acesso a todos os dados, independente
+      da conta)
+
+
+      0 -> Não
+
+      1 -> Sim
+  nome:
+    type: VARCHAR(255)
+    notNull: true
+    default: ''''''
+    comment: Nome do Usuario
+  email:
+    type: VARCHAR(255)
+    notNull: true
+    default: ''''''
+    comment: ''
+  imagem:
+    type: VARCHAR(255)
+    notNull: true
+    default: ''''''
+    comment: Imagem ou foto do usuário no sistema
+  dataCadastro:
+    type: TIMESTAMP
+    notNull: true
+    default: CURRENT_TIMESTAMP
+    comment: ''
+  ativo:
+    type: BIT(1)
+    notNull: false
+    default: '1'
+    comment: |-
+      1 -> Ativo
+      0 -> Inativo
+  removido:
+    type: BIT(1)
+    notNull: true
+    default: '0'
+    comment: |-
+      0 -> Não Removido
+      1 -> Removido
+  validadeSenha:
+    type: ' INT UNSIGNED'
+    notNull: false
+    default: ''
+    comment: Validade da senha em dias
+  dataAtualizacaoSenha:
+    type: DATETIME
+    notNull: true
+    default: CURRENT_TIMESTAMP
+    comment: Data em que a senha foi atualizada
+  alterarSenha:
+    type: BIT(1)
+    notNull: true
+    default: '0'
+    comment: |-
+      0 -> Não pede para alterar senha
+      1 -> Pede para alterar senha, próximo logon
+  token:
+    type: TEXT(1024)
+    notNull: false
+    default: ''
+    comment: Token de autenticação
+relations:
+  fk_conta___usuario:
+    foreignKey: conta_id
+    referenceKey: conta_id
+    referenceTable: conta
+    onDelete: null
+    onUpdate: null
+indexes:
+  idx_usuario_usuario:
+    type: unique index
+    columns:
+      - usuario
+  idx_usuario_email:
+    type: unique index
+    columns:
+      - email
+primaryKey:
+  - usuario_id

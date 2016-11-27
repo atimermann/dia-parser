@@ -18,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/andregt/dia-parser/issues"
   },
-  "homepage": "https://github.com/andregt/dia-parser#readme"
+  "homepage": "https://github.com/andregt/dia-parser#readme",
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "eyes": "^0.1.8",
+    "js-yaml": "^3.6.1",
+    "lodash": "^4.13.1",
+    "xml2js": "^0.4.16"
+  }
 }

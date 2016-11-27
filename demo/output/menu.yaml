@@ -1,0 +1,63 @@
+description: Menus do Sistema
+columns:
+  menu_id:
+    type: PRIMARY
+    notNull: false
+    default: ''
+    comment: ''
+  nome:
+    type: VARCHAR(64)
+    notNull: true
+    default: ''
+    comment: 'Nome do Menu, usado internamente pelo sistema'
+  titulo:
+    type: VARCHAR(64)
+    notNull: true
+    default: ''
+    comment: Título do menu
+  descricao:
+    type: VARCHAR(512)
+    notNull: false
+    default: ''
+    comment: ''
+  menuPai:
+    type: PRIMARY
+    notNull: false
+    default: ''
+    comment: Aponta para um menu superior (hierarquia)
+  alvo:
+    type: VARCHAR(1024)
+    notNull: false
+    default: ''
+    comment: >-
+      Destino do menu, podendo ser uma url, uma rota ou outro valor usado para
+      ativar o menu
+  ordem:
+    type: SMALLINT
+    notNull: true
+    default: '0'
+    comment: Ordem de exibição
+  icone:
+    type: VARCHAR(256)
+    notNull: false
+    default: ''
+    comment: Nome do ícone que será exibido no menu
+  ativo:
+    type: BIT(1)
+    notNull: true
+    default: '1'
+    comment: ''
+relations:
+  fk_menu___menu:
+    foreignKey: menuPai
+    referenceKey: menu_id
+    referenceTable: menu
+    onDelete: null
+    onUpdate: null
+indexes:
+  idx_menu_nome:
+    type: unique index
+    columns:
+      - nome
+primaryKey:
+  - menu_id

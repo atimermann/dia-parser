@@ -1,0 +1,3 @@
+description: Gerenciamento de contas no sistema
+extend: "conta.1"
+alias: "conta.2"

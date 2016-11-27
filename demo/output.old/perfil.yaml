@@ -1,0 +1,53 @@
+description: Perfil de Acesso
+columns:
+  perfil_id:
+    type: PRIMARY
+    notNull: false
+    default: ''
+    comment: ''
+  conta_id:
+    type: PRIMARY
+    notNull: false
+    default: ''
+    comment: |-
+      Perfil pode ser global ou pertencer a uma conta, se null é global
+      ou chave estrangeira para conta
+  nome:
+    type: VARCHAR(64)
+    notNull: true
+    default: ''
+    comment: ''
+  descricao:
+    type: VARCHAR(512)
+    notNull: false
+    default: ''
+    comment: Descrição do perfil
+  ativo:
+    type: BIT
+    notNull: true
+    default: '1'
+    comment: |-
+      0 -> Inativo
+      1 -> Ativo
+  removido:
+    type: BIT
+    notNull: true
+    default: '0'
+    comment: |-
+      0 -> Não removido
+      1 -> Removido
+relations:
+  fk_conta___perfil:
+    foreignKey: conta_id
+    referenceKey: conta_id
+    referenceTable: conta
+    onDelete: null
+    onUpdate: null
+indexes:
+  idx_perfil__nome:
+    type: unique index
+    columns:
+      - nome
+      - conta_id
+primaryKey:
+  - perfil_id

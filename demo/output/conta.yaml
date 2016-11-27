@@ -1,0 +1,149 @@
+description: Gerenciamento de contas no sistema
+
+columns:
+  conta_id:
+    type: PRIMARY
+    notNull: false
+    default: ''
+    comment: ''
+  nome:
+    type: VARCHAR(255)
+    notNull: true
+    default: ''''''
+    comment: ''
+  email:
+    type: VARCHAR(255)
+    notNull: true
+    default: ''''''
+    comment: ''
+  cpfCnpj:
+    type: VARCHAR(15)
+    notNull: true
+    default: ''''''
+    comment: ''
+  tipoCadastro:
+    type: CHAR(1)
+    notNull: true
+    default: ''
+    comment: |-
+      F -> Pessoa Física
+      J -> Pessoa Jurídica
+  razaoSocial:
+    type: VARCHAR(255)
+    notNull: false
+    default: ''
+    comment: ''
+  endereco:
+    type: VARCHAR(255)
+    notNull: true
+    default: ''''''
+    comment: ''
+  numero:
+    type: VARCHAR(15)
+    notNull: true
+    default: ''''''
+    comment: ''
+  complemento:
+    type: VARCHAR(15)
+    notNull: false
+    default: ''
+    comment: ''
+  cep:
+    type: VARCHAR(15)
+    notNull: true
+    default: ''''''
+    comment: ''
+  bairro:
+    type: VARCHAR(255)
+    notNull: false
+    default: ''
+    comment: ''
+  telefone:
+    type: VARCHAR(32)
+    notNull: true
+    default: ''''''
+    comment: ''
+  celular:
+    type: VARCHAR(32)
+    notNull: false
+    default: ''
+    comment: ''
+  municipio:
+    type: VARCHAR(255)
+    notNull: true
+    default: ''''''
+    comment: ''
+  estado:
+    type: VARCHAR(255)
+    notNull: true
+    default: ''''''
+    comment: ''
+  pais:
+    type: VARCHAR(255)
+    notNull: true
+    default: ''''''
+    comment: ''
+  rg:
+    type: VARCHAR(15)
+    notNull: true
+    default: ''''''
+    comment: ''
+  inscricaoEstadual:
+    type: VARCHAR(15)
+    notNull: false
+    default: ''
+    comment: ''
+  sexo:
+    type: CHAR(1)
+    notNull: true
+    default: ''''''
+    comment: |-
+      M -> Masculino
+      F -> Feminino
+  dataNascimento:
+    type: DATE
+    notNull: false
+    default: ''
+    comment: ''
+  dataCadastro:
+    type: TIMESTAMP
+    notNull: true
+    default: CURRENT_TIMESTAMP
+    comment: ''
+  ativo:
+    type: BIT(1)
+    notNull: true
+    default: '1'
+    comment: |-
+      1 -> Ativo
+      0 -> Inativo
+  removido:
+    type: BIT(1)
+    notNull: false
+    default: '0'
+    comment: |-
+      0 -> Não Removido
+      1 -> Removido
+
+relations: {}
+
+indexes:
+  idx_conta_email:
+    type: unique index
+    columns:
+      - email
+  idx_conta_cpfCnpj:
+    type: unique index
+    columns:
+      - cpfCnpj
+  idx_conta_rg:
+    type: unique index
+    columns:
+      - rg
+  idx_conta_inscricaoEstadual:
+    type: unique index
+    columns:
+      - inscricaoEstadual
+
+primaryKey:
+  - conta_id

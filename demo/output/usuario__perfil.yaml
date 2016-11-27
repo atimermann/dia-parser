@@ -1,0 +1,39 @@
+description: |
+  Relacionamento M-N usuario -> perfil
+columns:
+  usuario__perfil_id:
+    type: PRIMARY
+    notNull: false
+    default: ''
+    comment: ''
+  perfil_id:
+    type: PRIMARY
+    notNull: true
+    default: ''
+    comment: ''
+  usuario_id:
+    type: PRIMARY
+    notNull: true
+    default: ''
+    comment: ''
+relations:
+  fk_usuario___usuario__perfil:
+    foreignKey: usuario_id
+    referenceKey: usuario_id
+    referenceTable: usuario
+    onDelete: CASCADE
+    onUpdate: CASCADE
+  fk_perfil___usuario__perfil:
+    foreignKey: perfil_id
+    referenceKey: perfil_id
+    referenceTable: perfil
+    onDelete: CASCADE
+    onUpdate: null
+indexes:
+  idx_usuario__perfil:
+    type: unique index
+    columns:
+      - perfil_id
+      - usuario_id
+primaryKey:
+  - usuario__perfil_id

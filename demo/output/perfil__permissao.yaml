@@ -1,0 +1,43 @@
+description: |
+  Relacionamento M-N perfil -> permissão
+
+columns:
+  perfil__permissao_id:
+    type: PRIMARY
+    notNull: false
+    default: ''
+    comment: ''
+  perfil_id:
+    type: PRIMARY
+    notNull: true
+    default: ''
+    comment: ''
+  permissao_id:
+    type: PRIMARY
+    notNull: true
+    default: ''
+    comment: ''
+
+relations:
+  fk_perfil___perfil__permissao:
+    foreignKey: perfil_id
+    referenceKey: perfil_id
+    referenceTable: perfil
+    onDelete: CASCADE
+    onUpdate: null
+  fk_permissao___perfil__permissao:
+    foreignKey: permissao_id
+    referenceKey: permissao_id
+    referenceTable: permissao
+    onDelete: CASCADE
+    onUpdate: null
+
+indexes:
+  idx_perfil__permissao:
+    type: unique index
+    columns:
+      - perfil_id
+      - permissao_id
+
+primaryKey:
+  - perfil__permissao_id
