@@ -19,7 +19,7 @@ diaParser.loadDia(__dirname + '/teste.dia')
 
         console.log(data);
 
-        // Realiza Validação dos Modelos, e grava resoltado na pasta output
+        // Realiza Validação dos Modelos, e grava resultado na pasta output
         diaParser.build('yamlSql', data);
 
     });
@@ -28,3 +28,5 @@ diaParser.loadDia(__dirname + '/teste.dia')
 ////////////////////////////////////////////////////////////////////
 // Converte YAML => DIA
 ////////////////////////////////////////////////////////////////////
+
+//TODO: Não implementado ainda
