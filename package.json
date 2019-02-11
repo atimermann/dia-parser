@@ -8,17 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andregt/dia-parser.git"
+    "url": "git+https://github.com/atimermann/dia-parser.git"
   },
   "keywords": [
     "dia"
   ],
-  "author": "André Timermann <andre@andregustavo.org>",
+  "author": "André Timermann <andre@timermann.com.br>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/andregt/dia-parser/issues"
+    "url": "https://github.com/atimermann/dia-parser/issues"
   },
-  "homepage": "https://github.com/andregt/dia-parser#readme",
+  "homepage": "https://github.com/atimermann/dia-parser#readme",
   "dependencies": {
     "bluebird": "^3.4.1",
     "eyes": "^0.1.8",
