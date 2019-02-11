@@ -13,7 +13,7 @@
   "keywords": [
     "dia"
   ],
-  "author": "André Timermann",
+  "author": "André Timermann <andre@andregustavo.org>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/andregt/dia-parser/issues"
