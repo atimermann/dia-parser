@@ -23,6 +23,7 @@ const _ = require('lodash');
 class DiaParser {
 
 
+
     /**
      * Carrega Arquivo DIA
      *
@@ -181,13 +182,13 @@ class DiaParser {
      * @param adaptor
      * @param data
      */
-    build(adaptor, data) {
+    build(adaptor, data, output) {
 
         let self = this;
 
         if (adaptor === 'yamlSql') {
 
-            let adaptor = new (require('./lib/yamlSql'))();
+            let adaptor = new (require('./lib/yamlSql'))(output);
             adaptor.build(data);
 
         }
